@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Alumni{% endblock %}
+
+{% block content %}
+<h2>Our Alumni</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Graduation Year</th>
+            <th>College</th>
+            <th>Major</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for alum in alumni %}
+        <tr>
+            <td>{{ alum.name }}</td>
+            <td>{{ alum.year }}</td>
+            <td>{{ alum.college }}</td>
+            <td>{{ alum.major }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
