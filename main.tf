@@ -19,7 +19,9 @@ resource "google_project_iam_member" "svc_tf_ja_wire_robotics_roles" {
     "roles/cloudbuild.builds.builder",
     "roles/storage.admin",
     "roles/cloudrun.admin",
-    "roles/datastore.user"
+    "roles/datastore.user",
+    "roles/run.admin", 
+    "roles/iam.serviceAccountUser"
   ])
 
   project = "jagwirerobotic"
