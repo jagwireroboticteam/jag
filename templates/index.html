@@ -1,0 +1,10 @@
+
+{% extends "base.html" %}
+{% block content %}
+<h2>Welcome to Jagwirer Robotics</h2>
+<ul>
+    {% for name, data in social_links.items() %}
+    <li><a href="{{ data['url'] }}">{{ name }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
