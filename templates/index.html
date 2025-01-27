@@ -1,0 +1,11 @@
+
+{% extends "base.html" %}
+{% block content %}
+<h2>Welcome to Jagwirer Robotics!</h2>
+<p>Follow us on social media:</p>
+<ul>
+    {% for platform, link in social_links.items() %}
+    <li><a href="{{ link['url'] }}" target="_blank">{{ platform }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
