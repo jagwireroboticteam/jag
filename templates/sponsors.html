@@ -1,0 +1,10 @@
+
+{% extends "base.html" %}
+{% block content %}
+<h2>Our Sponsors</h2>
+<ul>
+    {% for sponsor in sponsors %}
+    <li>{{ sponsor['name'] }} - <a href="{{ sponsor['url'] }}" target="_blank">{{ sponsor['url'] }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

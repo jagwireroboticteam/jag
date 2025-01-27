@@ -1,0 +1,15 @@
+
+{% extends "base.html" %}
+{% block content %}
+<h2>Upload Images</h2>
+<form method="POST" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <button type="submit">Upload</button>
+</form>
+<h3>Uploaded Images:</h3>
+<ul>
+    {% for image in images %}
+    <li><a href="{{ image['url'] }}" target="_blank">{{ image['file_name'] }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
