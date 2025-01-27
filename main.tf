@@ -20,7 +20,7 @@ resource "google_project_iam_member" "svc_tf_ja_wire_robotics_roles" {
     "roles/storage.admin",
     "roles/cloudrun.admin",
     "roles/datastore.user",
-    "roles/run.admin", 
+    "roles/run.admin",
     "roles/iam.serviceAccountUser",
     "roles/logging.logWriter"
   ])
