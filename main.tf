@@ -1,4 +1,3 @@
-
 provider "google" {
   project = "jagwirerobotic"
   region  = "us-central1"
@@ -16,12 +15,12 @@ resource "google_service_account_key" "svc_tf_ja_wire_robotics_key" {
 
 resource "google_project_iam_member" "svc_tf_ja_wire_robotics_roles" {
   for_each = toset([
-    "roles/cloudbuild.builds.builder",
-    "roles/storage.admin",
-    "roles/datastore.user",
-    "roles/run.admin",  
-    "roles/iam.serviceAccountUser",
-    "roles/logging.logWriter"
+    "roles/cloudbuild.builds.builder", # Build permissions for Cloud Build
+    "roles/storage.admin",            # Full access to Cloud Storage
+    "roles/run.admin",                # Correct role for Cloud Run management
+    "roles/datastore.user",           # Access Firestore
+    "roles/iam.serviceAccountUser",   # Impersonation rights
+    "roles/logging.logWriter"         # Write logs to Cloud Logging
   ])
 
   project = "jagwirerobotic"
