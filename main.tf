@@ -18,9 +18,8 @@ resource "google_project_iam_member" "svc_tf_ja_wire_robotics_roles" {
   for_each = toset([
     "roles/cloudbuild.builds.builder",
     "roles/storage.admin",
-    "roles/cloudrun.admin",
     "roles/datastore.user",
-    "roles/run.admin",
+    "roles/run.admin",  
     "roles/iam.serviceAccountUser",
     "roles/logging.logWriter"
   ])
