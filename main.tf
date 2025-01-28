@@ -20,7 +20,9 @@ resource "google_project_iam_member" "svc_tf_ja_wire_robotics_roles" {
     "roles/run.admin",                # Correct role for Cloud Run management
     "roles/datastore.user",           # Access Firestore
     "roles/iam.serviceAccountUser",   # Impersonation rights
-    "roles/logging.logWriter"         # Write logs to Cloud Logging
+    "roles/logging.logWriter",         # Write logs to Cloud Logging
+    "roles/artifactregistry.writer"
+
   ])
 
   project = "jagwirerobotic"
