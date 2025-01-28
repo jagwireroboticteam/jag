@@ -1,5 +1,8 @@
 options:
   logging: CLOUD_LOGGING_ONLY
+  # Specify the service account to use for the build
+  serviceAccount: 'projects/jagwirerobotic/serviceAccounts/svc-tf-ja-wire-robotics@jagwirerobotic.iam.gserviceaccount.com'
+
 steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/$PROJECT_ID/cloudrun-firestore', '.']
