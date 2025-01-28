@@ -18,11 +18,11 @@ resource "google_project_iam_member" "svc_tf_ja_wire_robotics_roles" {
     "roles/cloudbuild.builds.builder", # Build permissions for Cloud Build
     "roles/storage.admin",            # Full access to Cloud Storage
     "roles/run.admin",                # Correct role for Cloud Run management
-    "roles/datastore.user",           # Access Firestore
+    "roles/datastore.admin",           # Access Firestore admin
     "roles/iam.serviceAccountUser",   # Impersonation rights
     "roles/logging.logWriter",         # Write logs to Cloud Logging
-    "roles/artifactregistry.writer"
-
+    "roles/artifactregistry.writer",
+    "roles/resourcemanager.projectIamAdmin"
   ])
 
   project = "jagwirerobotic"
