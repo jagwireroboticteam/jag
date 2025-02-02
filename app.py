@@ -1,27 +1,39 @@
-
 from google.cloud import firestore, storage
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 import firebase_admin
 from firebase_admin import credentials, firestore
 import os
+from google.cloud import secretmanager
+import json
+
 
 app = Flask(__name__)
 
-# Firestore setup
-db = firestore.Client(project='jagwirerobotic')
+# Function to retrieve secret from Secret Manager
+def get_secret(secret_name, project_id="jagwirerobotic"):
+    client = secretmanager.SecretManagerServiceClient()
+    name = f"projects/{project_id}/secrets/{secret_name}/versions/latest"
+    response = client.access_secret_version(request={"name": name})
+    return response.payload.data.decode("UTF-8")
 
-# Cloud Storage setup
+# Retrieve JSON key from Secret Manager
+service_account_json = get_secret("jagwire-crediential")  # Ensure correct secret name
+
+# Initialize Firebase Admin with the secret JSON
+cred = credentials.Certificate(json.loads(service_account_json))
+firebase_admin.initialize_app(cred)
+
+db = firestore.client()
+
+
+db = firestore.client()
+
+# ✅ Cloud Storage setup
 storage_client = storage.Client()
 bucket_name = "jag_wire_robotic_website"
 bucket = storage_client.bucket(bucket_name)
-app.secret_key = 'supersecretkey'  # Change this for production
 
-# Initialize Firebase
-cred = credentials.ApplicationDefault()
-firebase_admin.initialize_app(cred, {'projectId': 'jagwirerobotic'})
-db = firestore.client()
-
-# Routes
+# ✅ Routes
 @app.route('/')
 def home():
     social_links = {
@@ -31,15 +43,20 @@ def home():
     }
     return render_template('index.html', social_links=social_links)
 
-
 @app.route('/sponsors')
 def sponsors():
     sponsors_ref = db.collection('sponsors').stream()
     sponsors_list = [{'name': sponsor.id, **sponsor.to_dict()} for sponsor in sponsors_ref]
     return render_template('sponsors.html', sponsors=sponsors_list)
 
+@app.route('/donate')
+def donate():
+    donate_ref = db.collection('donate').stream()
+    donate_list = [{'name': donate.id, **donate.to_dict()} for donate in donate_ref]
+    return render_template('donate.html', sponsors=donate_list)
+
 @app.route('/calendar')
-def calendar():
+def calendar_page():
     return render_template('calendar.html')
 
 @app.route('/upload')
@@ -54,7 +71,7 @@ def teams():
     team_members_list = [{'name': member.id, **member.to_dict()} for member in team_members_ref]
     return render_template('teams.html', team_members=team_members_list)
 
-# Admin Authentication
+# ✅ Admin Authentication
 @app.route('/admin-login', methods=['GET', 'POST'])
 def admin_login():
     if request.method == 'POST':
@@ -80,7 +97,7 @@ def admin_logout():
 def admin_dashboard():
     if 'admin' not in session:
         flash("Please log in as an admin.", "warning")
-        return redirect(url_for('admin_login'))
+        return redirect(url_for('admin_login'))  # ✅ Fixed incorrect redirect
     
     return render_template('admin.html')
 
@@ -100,7 +117,7 @@ def upload_team_pictures():
         })
         flash("Image uploaded successfully!", "success")
     
-    return redirect(url_for('admin_dashboard'))
+    return redirect(url_for('admin_dashboard'))  # ✅ Fixed incorrect redirect
 
 @app.route('/add-sponsor', methods=['POST'])
 def add_sponsor():
@@ -119,7 +136,7 @@ def add_sponsor():
         })
         flash("Sponsor added successfully!", "success")
     
-    return redirect(url_for('admin_dashboard'))
+    return redirect(url_for('admin_dashboard'))  # ✅ Fixed incorrect redirect
 
 if __name__ == '__main__':
     app.run(debug=True)

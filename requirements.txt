@@ -4,3 +4,4 @@ google-cloud-firestore
 google-cloud-storage
 gunicorn
 firebase-admin
+google-cloud-secret-manager

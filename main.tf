@@ -1,7 +1,3 @@
-provider "google" {
-  project = "jagwirerobotic"
-  region  = "us-central1"
-}
 
 # ✅ Create Service Account
 resource "google_service_account" "svc_tf_ja_wire_robotics" {
@@ -50,4 +46,10 @@ resource "google_secret_manager_secret" "robotics_secret" {
 resource "google_secret_manager_secret_version" "robotics_secret_version" {
   secret      = google_secret_manager_secret.robotics_secret.id
   secret_data = base64decode(google_service_account_key.svc_tf_ja_wire_robotics_key.private_key)
+}
+
+resource "google_project_iam_member" "secret_manager_access" {
+  project = "jagwirerobotic"
+  role    = "roles/secretmanager.secretAccessor"
+  member  = "serviceAccount:svc-tf-ja-wire-robotics@jagwirerobotic.iam.gserviceaccount.com"
 }
