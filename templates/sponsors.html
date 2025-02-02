@@ -1,4 +1,3 @@
-
 {% extends "base.html" %}
 {% block content %}
 <h2>Our Sponsors</h2>
@@ -7,4 +6,18 @@
     <li>{{ sponsor['name'] }} - <a href="{{ sponsor['url'] }}" target="_blank">{{ sponsor['url'] }}</a></li>
     {% endfor %}
 </ul>
+<h2>Become a Sponsor</h2>
+<p>Your support helps us build, compete, and innovate! Choose a sponsorship level:</p>
+<ul>
+    <li>🥇 Gold Sponsor: $1000+ (Logo on Robot & Website)</li>
+    <li>🥈 Silver Sponsor: $500+ (Logo on Website)</li>
+    <li>🥉 Bronze Sponsor: $250+ (Name on Website)</li>
+</ul>
+<form method="POST" action="/sponsors">
+    <input type="text" name="sponsor_name" placeholder="Sponsor Name" required><br>
+    <input type="url" name="sponsor_url" placeholder="Sponsor Website" required><br>
+    <input type="text" name="paypal_link" placeholder="PayPal Donation Link" required><br>
+    <button type="submit">Submit Sponsor Info</button>
+</form>
+<a href="https://www.paypal.com/donate" target="_blank" class="donate-btn">Donate via PayPal</a>
 {% endblock %}

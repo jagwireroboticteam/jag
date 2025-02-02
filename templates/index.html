@@ -1,10 +1,17 @@
-
 {% extends "base.html" %}
 {% block content %}
 <h2>Welcome to Jagwirer Robotics</h2>
+<section>
+    <p>We are a passionate high school robotics team dedicated to innovation, teamwork, and competition.</p>
+    <video width="80%" controls>
+        <source src="/static/team_video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</section>
 <ul>
     {% for name, data in social_links.items() %}
     <li><a href="{{ data['url'] }}">{{ name }}</a></li>
     {% endfor %}
 </ul>
+<a href="/sponsors" class="cta-button">Support Our Team</a>
 {% endblock %}

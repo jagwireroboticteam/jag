@@ -1,7 +1,7 @@
-
 {% extends "base.html" %}
 {% block content %}
 <h2>Upcoming Events</h2>
+<iframe src="https://calendar.google.com/calendar/embed?src=your_google_calendar_id" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 <ul>
     {% for event in events %}
     <li>{{ event['name'] }} - {{ event['date'] }}: {{ event['description'] }}</li>

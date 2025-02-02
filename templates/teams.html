@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Meet Our Teams</h2>
+<section>
+    <p>Jagwirer Robotics is divided into specialized sub-teams, each focusing on a crucial aspect of our success.</p>
+</section>
+
+<h3>Sub-Teams</h3>
+<ul>
+    <li><strong>🔧 Mechanical Team:</strong> Builds and assembles the robot’s physical components.</li>
+    <li><strong>⚡ Electrical Team:</strong> Handles wiring, power distribution, and sensors.</li>
+    <li><strong>💻 Programming Team:</strong> Codes the robot’s autonomous and teleoperated functions.</li>
+    <li><strong>📢 Marketing & Outreach:</strong> Manages sponsorships, social media, and public relations.</li>
+</ul>
+
+<h3>Meet Our Members</h3>
+<ul>
+    {% for member in team_members %}
+    <li><strong>{{ member['name'] }}</strong> - {{ member['role'] }}</li>
+    {% endfor %}
+</ul>
+
+<a href="/join" class="cta-button">Join Our Team</a>
+
+{% endblock %}

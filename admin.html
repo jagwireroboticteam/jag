@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Admin Dashboard</h2>
+
+<section>
+    <h3>Upload Team Pictures</h3>
+    <form method="POST" enctype="multipart/form-data" action="/upload-team-pictures">
+        <input type="file" name="file" required><br>
+        <button type="submit">Upload</button>
+    </form>
+</section>
+
+<section>
+    <h3>Manage Sponsors</h3>
+    <form method="POST" action="/add-sponsor">
+        <input type="text" name="sponsor_name" placeholder="Sponsor Name" required><br>
+        <input type="url" name="sponsor_url" placeholder="Sponsor Website" required><br>
+        <input type="text" name="paypal_link" placeholder="PayPal Donation Link" required><br>
+        <button type="submit">Add Sponsor</button>
+    </form>
+</section>
+
+{% endblock %}

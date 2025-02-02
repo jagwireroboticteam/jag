@@ -3,3 +3,4 @@ flask
 google-cloud-firestore
 google-cloud-storage
 gunicorn
+firebase-admin
