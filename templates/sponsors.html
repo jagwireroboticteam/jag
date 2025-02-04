@@ -6,18 +6,59 @@
     <li>{{ sponsor['name'] }} - <a href="{{ sponsor['url'] }}" target="_blank">{{ sponsor['url'] }}</a></li>
     {% endfor %}
 </ul>
-<h2>Become a Sponsor</h2>
-<p>Your support helps us build, compete, and innovate! Choose a sponsorship level:</p>
+
+<h2>Degrees of Sponsorship</h2>
+
+<h3>Patron Sponsor: $1-$350</h3>
 <ul>
-    <li>🥇 Gold Sponsor: $1000+ (Logo on Robot & Website)</li>
-    <li>🥈 Silver Sponsor: $500+ (Logo on Website)</li>
-    <li>🥉 Bronze Sponsor: $250+ (Name on Website)</li>
+    <li>Name of sponsor will be published on our website’s sponsorship page</li>
 </ul>
-<form method="POST" action="/sponsors">
-    <input type="text" name="sponsor_name" placeholder="Sponsor Name" required><br>
-    <input type="url" name="sponsor_url" placeholder="Sponsor Website" required><br>
-    <input type="text" name="paypal_link" placeholder="PayPal Donation Link" required><br>
-    <button type="submit">Submit Sponsor Info</button>
-</form>
-<a href="https://www.paypal.com/donate" target="_blank" class="donate-btn">Donate via PayPal</a>
+
+<h3>Bronze Sponsor: $351-$550</h3>
+<ul>
+    <li>Name of sponsor will be published on our website’s sponsorship page</li>
+    <li>Name of sponsor will be printed in <strong>small</strong> font on our team t-shirt</li>
+</ul>
+
+<h3>Silver Sponsor: $551-$1,000</h3>
+<ul>
+    <li>Name and picture of sponsor + link to sponsor’s website on our website’s sponsorship page</li>
+    <li>Name of sponsor will be printed in <strong>medium</strong> font on our team t-shirt</li>
+    <li>Invitation to attend local competition</li>
+</ul>
+
+<h3>Gold Sponsor: $1,001-$5,999</h3>
+<ul>
+    <li>Name and picture of sponsor + link to sponsor’s website on our website’s sponsorship page</li>
+    <li>Name of sponsor will be printed in <strong>large</strong> font on our team t-shirt + <strong>small</strong> company logo</li>
+    <li>Invitation to attend local competition + company shoutouts on our social media pages</li>
+    <li><strong>Small</strong> logo on banner (displayed at events and tournaments)</li>
+</ul>
+
+<h3>Platinum Sponsor: $6,000-$9,999</h3>
+<ul>
+    <li>Banner and link to sponsor’s website will be published on our website’s sponsorship page</li>
+    <li>Name of sponsor and <strong>medium</strong> company logo will be printed on our team t-shirt</li>
+    <li>Invitation to attend local competition + company shoutouts on our social media pages</li>
+    <li><strong>Small</strong> company logo located on the Robot</li>
+    <li><strong>Large</strong> company logo on banner</li>
+    <li>Your company is thanked during competition alliance selections (nationally televised)</li>
+</ul>
+
+<h3>Diamond Sponsor: $10,000+</h3>
+<ul>
+    <li>Banner and link to sponsor’s website will be published on our website’s sponsorship page</li>
+    <li>Name of sponsor and <strong>large</strong> company logo will be printed on our team t-shirt</li>
+    <li>Invitation to attend local competition + company shoutouts on our social media pages</li>
+    <li><strong>Large</strong> company logo located on the Robot</li>
+    <li><strong>Large</strong> company logo on banner</li>
+    <li>Your company is thanked during competition alliance selections (nationally televised) + company logo featured on all flyers and newsletters</li>
+</ul>
+
+<p>Thank you very much for supporting Andover Central Robotics!</p>
+
+<h2>Contact Us</h2>
+<p><strong>Erika Barron, Head Coach</strong></p>
+<p>📞 (906)-399-3456 | ✉️ <a href="mailto:barrone@usd385.org">barrone@usd385.org</a></p>
+
 {% endblock %}

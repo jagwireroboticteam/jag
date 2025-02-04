@@ -1,97 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jagwirer Robotics</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #121212;
-            color: white;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        header {
-            background: #1e1e1e;
-            padding: 20px;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        nav a {
-            color: #00bcd4;
-            text-decoration: none;
-            font-size: 1.2em;
-            transition: 0.3s;
-        }
-        nav a:hover {
-            color: #ffeb3b;
-        }
-        main {
-            padding: 40px;
-        }
-        section {
-            max-width: 800px;
-            margin: auto;
-            background: #1e1e1e;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-        }
-        footer {
-            background: #1e1e1e;
-            padding: 10px;
-            width: 100%;
-            bottom: 0;
-            position: relative;
-        }
-        h2 {
-            color: #ffeb3b;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        ul li {
-            background: rgba(255, 255, 255, 0.1);
-            margin: 10px;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        a {
-            color: #00bcd4;
-            text-decoration: none;
-        }
-        a:hover {
-            color: #ffeb3b;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Andover Central High School</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Base Styles -->
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #FFFFFF;
+      color: #000000;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: bold;
+      color: #000000;
+    }
+
+    h1 {
+      font-size: 48px;
+    }
+
+    h2 {
+      font-size: 36px;
+    }
+
+    h3 {
+      font-size: 24px;
+    }
+
+    p {
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      color: #000000;
+    }
+
+    a {
+      color: #000000;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    button {
+      font-family: 'Exo 2', sans-serif;
+      font-size: 18px;
+      font-weight: bold;
+      background-color: #8B6C42;
+      color: #000000;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #705A34;
+    }
+
+    /* Header Styles */
+    header {
+      background-color: #FFFFFF;
+      color: #000000;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    header img {
+      width: 300px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Navigation Styles */
+    nav {
+      background-color: #8B6C42;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    nav a {
+      color: #000000;
+      margin: 0 15px;
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Main Content Styles */
+    main {
+      padding: 20px;
+    }
+
+    /* Footer Styles */
+    footer {
+      background-color: #FFFFFF;
+      color: #000000;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 14px;
+    }
+  </style>
+  {% block styles %}{% endblock %}
 </head>
 <body>
-    <header>
-        <h1>Jagwirer Robotics</h1>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/upload">Upload</a>
-            <a href="/sponsors">Sponsors</a>
-            <a href="/calendar">Calendar</a>
-            <a href="/teams">Teams</a>
-            <a href="/donate">Donate</a>
-        </nav>
-    </header>
-    <main>
-        <section>
-            {% block content %}{% endblock %}
-        </section>
-    </main>
-    <footer>
-        &copy; {{ current_year }} Jagwirer Robotics | All Rights Reserved
-    </footer>
+  <!-- Header -->
+  <header>
+    <!-- <img src="/images/jag-wire-logo.png" alt="Jag Wire Logo"> -->
+    <nav>
+      <a href="/">Home</a>
+      <a href="/sponsors">Sponsors</a>
+      <a href="/calendar">Calendar</a>
+      <a href="/teams">Teams</a>
+      <a href="/donate">Donate</a>
+      <a href="/admin">Admin</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Jag Wire Robotics Team. All rights reserved.</p>
+  </footer>
+
+  {% block scripts %}{% endblock %}
 </body>
 </html>

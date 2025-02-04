@@ -6,8 +6,10 @@ import os
 from google.cloud import secretmanager
 import json
 
-
 app = Flask(__name__)
+
+# Set a secure secret key for sessions
+app.secret_key = os.urandom(24)  # Generates a 24-byte random key
 
 # Function to retrieve secret from Secret Manager
 def get_secret(secret_name, project_id="jagwirerobotic"):
@@ -22,9 +24,6 @@ service_account_json = get_secret("jagwire-crediential")  # Ensure correct secre
 # Initialize Firebase Admin with the secret JSON
 cred = credentials.Certificate(json.loads(service_account_json))
 firebase_admin.initialize_app(cred)
-
-db = firestore.client()
-
 
 db = firestore.client()
 
