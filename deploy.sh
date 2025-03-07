@@ -14,7 +14,7 @@ docker push gcr.io/jagwirerobotic/cloudrun-firestore
 # Deploy Cloud Run service
 
 echo "Deploying Cloud Run service..."
-gcloud run deploy jag-wirer-robotic-service \
+gcloud run deploy jag-wirer-robotic-service-abby \
     --image=gcr.io/jagwirerobotic/cloudrun-firestore \
     --region=us-central1 \
     --allow-unauthenticated \
